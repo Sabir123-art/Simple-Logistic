@@ -1,0 +1,651 @@
+
+@import './variables.scss';
+
+
+ button {
+     margin-top: $space-xs;
+     padding: $space-xs $space-s;
+     background-color: #007bff;
+     color: #fff;
+     border: none;
+     border-radius: $space-xxxs;
+     transition: ease-in-out 0.3s;
+
+     &:hover {
+         background-color: yellowgreen;
+         color: #333;
+         cursor: pointer;
+         transform: scale(1.05);
+     }
+ }
+
+
+.top-nav {
+    display: flex;
+    background-color: rgb(0, 0, 0);
+    justify-content: space-between;
+    align-items: center;
+    padding: $space-xs;
+    color: #000000;
+    .contact-info {
+            display: flex;
+            align-items: center;
+        }
+        .contact-icon {
+            margin-right: $space-xxxs;
+        }
+        .phone,
+        .email {
+            margin-right: $space-xs;
+            color: #ccc;
+        }
+        .search-area {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            // background-color: white;
+        }
+        input[type="text"] {
+            padding: $space-xxxs;
+            margin-right: $space-xxxs;
+            width: 100%;
+        }
+        button {
+            // padding: $space-xxxs;
+            // margin-right: $space-m;
+            // background-color: white;
+            // color: #333;
+            @extend button
+        }
+        .social-icons {
+            margin-left: $space-ss;
+            margin-right: $space-s;
+            display: flex;
+            color: white;
+        }
+        .toggle-btn {
+            display: none;
+            cursor: pointer;
+        }
+}
+
+
+
+// .......................................... Sub Nav ................................................
+
+.sub-nav{
+    @extend .top-nav;
+    background-color:rgb(52, 49, 49);
+    & .sub-nav-item{
+        @extend .social-icons;
+        :hover{
+            font-size: $space-s;
+            // background-color: white;
+            color:$danger-color;
+            cursor: pointer;
+        }
+    }
+    & .icon{
+        @extend .phone;
+        i{
+            color: white;
+        }
+    }
+    & .contact-info{
+        h3{
+            color: white;
+            font-family: $ff-raleway;
+        }
+    }
+}
+
+.container{
+    width: 100%;
+    background-color: #e8e6e6;
+    display: flex;
+    flex-direction: column;
+    & .img-container{
+        flex-direction: column;
+        img{
+            width: 40rem;
+            height: auto;
+        }
+        height: auto;
+    }
+    & .para-container{
+        flex-direction: column;
+        margin-left: $space-ss;
+        :nth-child(2){
+            width: $space-3xl;
+            color: $blood-color;
+            font-size: $space-xl;
+        }
+        :nth-child(3){
+            text-decoration: none;
+        }
+        span{
+            font-size: $space-xl;
+            padding-left: $space-xxs;
+        }
+    }
+}
+
+
+//  ....................................................   About .................................
+
+.about-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .image-container {
+        flex: 1;
+        display: flex;
+        justify-content: space-around;
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: $space-xs;
+        }
+    }
+
+    .image-content {
+        flex: 1;
+        text-align: left;
+        padding: $space-ss;
+
+        h2 {
+            color: $blood-color;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: $space-xs;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: $space-xs;
+        }
+
+        p {
+            font-size: 1rem;
+            margin-bottom: $space-ss;
+        }
+
+        .play-icon {
+            font-size: $space-l;
+
+            a {
+                text-decoration: none;
+
+                i {
+                    padding: $space-s;
+                    background-color: red;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $tablet) {
+    .about-section {
+        flex-direction: column;
+        text-align: center;
+
+        .image-container {
+            flex-direction: column;
+
+            img {
+                margin: $space-xs auto;
+            }
+        }
+    }
+}
+
+// ........................................... Quotes ....................................... 
+
+.quotes {
+    margin-top: $space-ss;
+  display: flex;
+//   gap: $space-s;
+
+  .quotes__content {
+    width: 75%;
+    padding: $space-ss;
+    background-color: #f0f0f0;
+    & .highlight{
+        .first_highlight{
+            display: flex;
+            justify-content: space-around;
+            li{
+                font-family: $ff-lato;
+                font-size: $space-l;
+                list-style: none;
+                color: $blood-color;
+            }
+        }
+
+    }
+    & .second_highlight{
+        display: flex;
+        justify-content: space-around;
+        li{
+            font-size: $space-m;
+            list-style-type: none;
+        }
+
+    }
+
+  }
+  & .quotes_heading{
+    font-size: $space-m;
+    margin-bottom: $space-xxs;
+  }
+
+  .quotes__highlight {
+    padding: $space-xxxs;
+  }
+
+  .quotes__form {
+    width: 25%;
+    background-color: $blood-color;
+    padding: $space-ss;
+  }
+
+  .quotes__form-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .quotes__form-input,
+  .quotes__form-dropdown {
+    margin-bottom: $space-xs;
+    padding: 8px;
+  }
+
+  .quotes__form-button {
+    background-color: rgb(4, 2, 2);
+    color: white;
+    border: none;
+    padding: $space-xs;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: $tablet) {
+  .quotes {
+    flex-direction: column;
+
+    .quote__content{
+        width: 100%;
+    }
+    .quotes__form{
+        width: 75%;
+    }
+}
+}
+
+
+
+// ..................................................  Services   ..........................
+.heading{
+    font-size: $space-m;
+    justify-content: center;
+    align-items: center;
+}
+
+.services-grid {
+    margin-bottom: $space-s;
+    display: grid;
+    grid-template-columns: repeat($grid-columns, 1fr);
+    grid-gap: $gap;
+    transition: transform ease-in-out 0.3ms;
+    :hover{
+        transform: scale(1.01);
+    }
+        
+
+    // Responsive styles for 2 columns on smaller screens
+    @media (max-width: $tablet) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    // Responsive styles for 1 column on even smaller screens
+    @media (max-width: 480px) {
+        grid-template-columns: 1fr;
+    }
+
+    @mixin service-style {
+        border: 1px solid #ccc;
+        padding: $space-ss;
+        text-align: center;
+
+        img {
+            max-width: 100%;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-top: $space-xs;
+        }
+
+        p {
+            margin-top: space-xs;
+        }
+
+        button {
+            // margin-top: $space-xs;
+            // padding: $space-xs $space-s;
+            // background-color: #007bff;
+            // color: #fff;
+            // border: none;
+            // border-radius: $space-xxxs;
+            // transition: ease-in-out 0.3s;
+            // &:hover{
+            //     background-color: yellowgreen;
+            //     color: #333;
+            //     cursor: pointer;
+            //     transform: scale(1.05);
+            // }
+            @extend button
+        }
+    }
+    .service {
+        @include service-style;
+    }
+}
+
+
+.Choose-container{
+    background-color: #ccc;
+    & .Choose-us{
+        li{
+            font-size: $space-s;
+            font-family: 'Times New Roman';
+            list-style: circle;
+            padding: $space-xxxs;
+            flex-direction: row;
+            padding: $space-xxxs;
+        }
+    }
+    a{
+        button{
+            // background-color:rgb(255, 73, 0);
+            // border-radius: 20%;
+            // align-items: center;
+            // font-size: $space-s;
+            // color: white;
+            // border: none;
+            // margin-bottom: $space-ss;
+            @extend button
+        }
+    }
+}
+
+// ................................................... Why choose_Us ........................................
+
+.why_choose_Us {
+    @extend .quotes
+}
+
+// ...............................................................  consult ..........................................
+
+$breakpoint-mobile: 600px;
+
+.consult-div {
+    background-color: #f6e7e7;
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (min-width: $breakpoint-mobile) {
+        flex-direction: row;
+    }
+
+    .image-section {
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        @media screen and (min-width: $breakpoint-mobile) {
+            flex: 1;
+            padding: $space-ss;
+        }
+    }
+
+    .content-section {
+        padding: $space-ss;
+
+        h1 {
+            font-size: $space-ss;
+            margin-bottom: $space-xxs;
+        }
+
+        ul {
+            list-style: disc;
+            padding-left: $space-ss;
+            margin-bottom: $space-xxs;
+
+            li {
+                margin-bottom: $space-xxxs;
+            }
+        }
+
+        button {
+            // background-color: $blood-color;
+            // color: #fff;
+            // padding: $space-xs $space-l;
+            // border: none;
+            // border-radius: 3rem;
+            // cursor: pointer;
+            // font-size: $space-s;
+            @extend button
+        }
+
+        @media screen and (min-width: $breakpoint-mobile) {
+            flex: 2;
+            margin-left: $space-ss;
+        }
+    }
+}
+
+
+
+// ...........................................   Team ...................................
+
+
+
+.team-member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: $space-m;
+    margin-left: $space-ss;
+
+    @media (min-width: $tablet) {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .image-container {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-bottom: $space-s;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .content-container {
+        flex: 1;
+        padding: 0 $space-ss;
+
+        @media (min-width: $tablet) {
+            margin-left: $space-ss;
+        }
+
+        .name {
+            font-size: $space-m;
+            margin-bottom: $space-xxxs;
+        }
+
+        .post {
+            font-size: $space-ss;
+            color: #666;
+            margin-bottom: $space-xs;
+        }
+
+        .paragraph {
+            font-size: $space-s;
+            line-height: 1.4;
+        }
+    }
+}
+
+
+// ...............................................   Blogs  ................................................
+
+$breakpoint-small: 600px;
+
+.blog-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: $space-ss;
+    margin-bottom: $space-s;
+    padding: space-ss;
+
+    @media (max-width: $breakpoint-small) {
+        grid-template-columns: 1fr;
+    }
+
+    .blog-post {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        border: 1px solid #ccc;
+        border-radius: $space-xxxs;
+        overflow: hidden;
+        transition: transform 0.2s;
+
+        &:hover {
+            transform: scale(1.02);
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .blog-details {
+            padding: $space-ss;
+
+            h2 {
+                font-size: $space-ss;
+                margin: 0 0 $space-xs;
+            }
+
+            .date,
+            .author {
+                font-size: $space-xs;
+                color: #999;
+                margin: 0 0 $space-xs;
+            }
+
+            .description {
+                font-size: $space-s;
+                line-height: 1.4;
+            }
+            button{
+                @extend button
+
+            }
+        }
+    }
+}
+
+// ....................................................   footer  .....................................
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px $space-ss;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $space-ss;
+    @media screen and (max-width: 410px) {
+        grid-template-columns: 1fr;
+    }
+    .footer-column {
+        h3 {
+            font-size: $space-ss;
+        }
+
+        p {
+            font-size: $space-xs;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+
+            li {
+                margin-bottom: $space-xs;
+
+                a {
+                    color: #fff;
+                    text-decoration: none;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            margin-top: $space-xs;
+
+            input {
+                padding: $space-xxs;
+                border: 1px solid #fff;
+                border-radius: $space-xxxs;
+                margin-bottom: $space-xs;
+                background-color: transparent;
+                color: #fff;
+
+                &::placeholder {
+                    color: #ccc;
+                }
+            }
+
+            button {
+                padding: 8px 16px;
+                background-color: #fff;
+                color: #333;
+                border: none;
+                border-radius: $space-xxxs;
+                cursor: pointer;
+                
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+// ...............................................................................................
